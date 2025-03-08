@@ -4,7 +4,6 @@ import requests
 import os
 import time
 from openpyxl import load_workbook
-from openpyxl.utils import get_column_letter
 import tqdm
 
 def read_excel_data(file_path):
@@ -105,7 +104,7 @@ def write_results_to_excel(input_file, output_file=None):
     """Process each category-topic pair and write results to a new Excel file with each Q&A as a separate row."""
     if output_file is None:
         base, ext = os.path.splitext(input_file)
-        output_file = f"{base} _qa_dataset{ext}"
+        output_file = f"{base}_qa_dataset{ext}"
     
     # Read the original data
     df = read_excel_data(input_file)
@@ -162,7 +161,7 @@ def write_results_to_excel(input_file, output_file=None):
 
 if __name__ == "__main__":
     # Get the Excel file path from the user
-    excel_file = "test.xlsx"
+    excel_file = "censored_topics.xlsx"
     
     # Check if Ollama is running
     try:
